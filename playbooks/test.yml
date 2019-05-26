@@ -1,0 +1,8 @@
+---
+- hosts: all 
+- become: true
+- tasks:
+  - name: install a package
+    yum:
+      name: wget
+      state: present

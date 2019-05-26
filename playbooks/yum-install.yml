@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install package
+      yum:
+        name: wget
+        state: present
+    - name: uninstall package
+      yum:
+        name: wget
+        state: absent
+

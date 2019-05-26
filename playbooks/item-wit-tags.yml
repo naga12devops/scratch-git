@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install apche
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "redhat"
+    tags:
+      - install
+      - service 
+  - name: Install Wget
+    yum:
+      name: wget
+      state: installed
+    when: ansible_os_family == "debian"
+    tags:
+      - install
+  - name: Install Tree
+    yum:
+      name: tree
+      state: present
+    when: ansible_os_family == 'redhat'
+    tags:
+      - install
+  - name: Free Memory Size
+    debug:
+      msg: " Free Memory is {{ ansible_memory_mb.real.free }}"
+    tags:
+      - debug

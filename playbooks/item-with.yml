@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+  - name: Install Itmes
+    yum: 
+      name: "{{ item }}" 
+      state: absent
+    with_items:
+    - git
+    - httpd
+    - wget 
+    - nc
+    - tree
+  

@@ -1,0 +1,8 @@
+---
+- hosts: all 
+  become: yes
+  tasks: 
+  - name: Install Git
+    yum: name=git state=installed 
+  - name: install Wget
+    yum: name=yum state=present
